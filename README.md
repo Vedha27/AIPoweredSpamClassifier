@@ -33,5 +33,41 @@ First, let’s see the model accuracy:
 
 print("classifier accuracy {:.2f}%".format(classifier.score(features_test_transformed, y_test) * 100))
 Accuracy of our Naive Bayes classifer: 96.35%
-8. Finally, Spam classifier is now ready
-9. Load and simplify la 9th varaikum stepsda
+9. Finally, Spam classifier is now ready.
+DATA SET LINK🔗:https://www.kaggle.com/datasets/uciml/sms-spam-collection-dataset
+CODE:
+
+CODE:-
+# necessary libraries
+import openai
+import pandas as pd
+import numpy as np
+# libraries to develop and evaluate a machine learning model
+from sklearn.ensemble import RandomForestClassifier
+from sklearn.model_selection import train_test_split
+from sklearn.metrics import classification_report, 
+accuracy_score
+from sklearn.ensemble import RandomForestClassifier
+from sklearn.model_selection import train_test_split
+from sklearn.metrics import classification_report, 
+accuracy_score
+from sklearn.metrics import confusion_matrix
+# replace "YOUR API KEY" with your generated API key
+openai.api_key = "YOUR API KEY"
+# while loading the csv, we ignore any encoding errors and 
+skip any bad line
+df = pd.read_csv('spam.csv', encoding_errors='ignore', 
+on_bad_lines='skip')
+print(df.shape)
+# we have 3 columns with NULL values, to remove that we 
+use the below line
+df = df.dropna(axis=1)
+# we are taking only the first 60 rows for developing the 
+model
+df = df.iloc[:60]
+# rename the columns v1 and v2 to Output and Text 
+respectively
+df.rename(columns = {'v1':'OUTPUT', 'v2': 'TEXT'}, inplace = 
+True)
+print(df.shape)
+df.head()
